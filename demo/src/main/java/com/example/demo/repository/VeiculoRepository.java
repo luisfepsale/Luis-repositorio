@@ -7,11 +7,13 @@ import javax.annotation.PostConstruct;
 import com.example.demo.model.Veiculo;
 import org.springframework.stereotype.Component;
 
-
 @Component
 public class VeiculoRepository {
+
+
     private List<Veiculo> veiculos;
     private int nextCodigo;
+
 
     @PostConstruct
     public void init()
@@ -32,16 +34,16 @@ public class VeiculoRepository {
     {
         return veiculos;
     }
+    public void delete(Veiculo veiculo)
+    {
+            veiculos.remove(veiculo);
+    }
     public Optional<Veiculo> getVeiculoByCodigo(int codigo)
     {
         for(Veiculo cont : veiculos)
             if(cont.getCodigo() == codigo)
                 return Optional.of(cont);
         return Optional.empty();        
-    }
-    public void delete(Veiculo veiculo)
-    {
-            veiculos.remove(veiculo);
     }
     public Veiculo update(Veiculo veiculo)
     {

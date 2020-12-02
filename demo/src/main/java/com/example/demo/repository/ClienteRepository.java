@@ -3,18 +3,18 @@ package com.example.demo.repository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
 import javax.annotation.PostConstruct;
-
 import com.example.demo.model.Cliente;
-
 import org.springframework.stereotype.Component;
 
 
 @Component
 public class ClienteRepository {
+
+
     private List<Cliente> clientes;
     private int nextCodigo;
+
 
     @PostConstruct
     public void init()
@@ -36,16 +36,16 @@ public class ClienteRepository {
     {
         return clientes;
     }
+    public void delete(Cliente cliente)
+    {
+            clientes.remove(cliente);
+    }
     public Optional<Cliente> getClienteByCodigo(int codigo)
     {
         for(Cliente cont : clientes)
             if(cont.getCodigo() == codigo)
                 return Optional.of(cont);
         return Optional.empty();        
-    }
-    public void delete(Cliente cliente)
-    {
-            clientes.remove(cliente);
     }
     public Cliente update(Cliente cliente)
     {
