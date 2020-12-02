@@ -1,34 +1,36 @@
 package com.example.demo.model;
 
-
 public class Cliente {
+
+
     private int codigo;
     private String nome;
     private String endereco;
     private String CPF;
 
-    public int getCodigo() {
+    
+    public int getCodigo(){
         return codigo;
     }
-    public void setCodigo(int codigo) {
+    public void setCodigo(int codigo){
         this.codigo = codigo;
     }
-    public String getNome() {
+    public String getNome(){
         return nome;
     }
-    public void setNome(String nome) {
+    public void setNome(String nome){
         this.nome = nome;
     }
-    public String getEndereco() {
+    public String getEndereco(){
         return endereco;
     }
-    public void setEndereco(String endereco) {
+    public void setEndereco(String endereco){
         this.endereco = endereco;
     }
-    public String getCPF() {
+    public String getCPF(){
         return CPF;
     }
-    public void setCPF(String cPF) {
+    public void setCPF(String cPF){
         CPF = cPF;
     }
 }
