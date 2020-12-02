@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
-
     @RestController
     @RequestMapping("/clientes")
     public class ClienteController {
@@ -41,12 +40,6 @@ import org.springframework.web.util.UriComponentsBuilder;
         Cliente cliente = service.getClienteByCodigo(codigo);
         return ResponseEntity.ok(cliente);
     }
-    @DeleteMapping("/{codigo}")
-    public ResponseEntity<Void> remover(@PathVariable int codigo)
-    {
-    service.removerByCodigo(codigo);
-    return ResponseEntity.noContent().build();
-    }
     @PutMapping("/{codigo}")
     public ResponseEntity<Cliente> atualizar(@RequestBody ClienteDTO veiculoDTO,@PathVariable int codigo)
     {
@@ -60,6 +53,12 @@ import org.springframework.web.util.UriComponentsBuilder;
     {
         UriComponents uriComponents = builder.path(request.getRequestURI() + "/" + cliente.getCodigo()).build();
         return ResponseEntity.created(uriComponents.toUri()).build();  
-    }    
+    }  
+    @DeleteMapping("/{codigo}")
+    public ResponseEntity<Void> remover(@PathVariable int codigo)
+    {
+    service.removerByCodigo(codigo);
+    return ResponseEntity.noContent().build();
+    } 
 }
-    
+

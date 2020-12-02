@@ -48,17 +48,17 @@ public class VeiculoController {
     veiculo = service.update(veiculo);
     return ResponseEntity.ok(veiculo);   
     }
-    @DeleteMapping("/{codigo}")
-    public ResponseEntity<Void> remover(@PathVariable int codigo)
-    {
-    service.removerByCodigo(codigo);
-    return ResponseEntity.noContent().build();
-    }
     @PostMapping("/{codigo}/veiculos")
     public ResponseEntity<Void> salvar(@PathVariable int codigo, @RequestBody Veiculo veiculo, HttpServletRequest request, UriComponentsBuilder builder)
     {
         UriComponents uriComponents = builder.path(request.getRequestURI() + "/" + veiculo.getCodigo()).build();
         return ResponseEntity.created(uriComponents.toUri()).build();  
-    }    
+    }   
+    @DeleteMapping("/{codigo}")
+    public ResponseEntity<Void> remover(@PathVariable int codigo)
+    {
+    service.removerByCodigo(codigo);
+    return ResponseEntity.noContent().build();
+    } 
 }
     
