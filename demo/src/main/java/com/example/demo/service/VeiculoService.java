@@ -13,8 +13,10 @@ import org.springframework.web.server.ResponseStatusException;
 @Service
 public class VeiculoService {
        
+
     @Autowired
     private VeiculoRepository repository;
+
 
     public Veiculo fromDTO(VeiculoDTO objDTO){
         Veiculo veiculo = new Veiculo();
@@ -24,16 +26,16 @@ public class VeiculoService {
     }
     public List<Veiculo> getVeiculos(){
         return repository.getVeiculos();
-    }   
-    public Veiculo save(Veiculo veiculo)
-    {
-        return repository.save(veiculo);
-    }     
+    } 
     public Veiculo update(Veiculo veiculo)
     {
         getVeiculoByCodigo(veiculo.getCodigo());
         return repository.update(veiculo);
-    }
+    }  
+    public Veiculo save(Veiculo veiculo)
+    {
+        return repository.save(veiculo);
+    }     
     public void removerByCodigo(int codigo)
     {
             repository.delete(getVeiculoByCodigo(codigo));
